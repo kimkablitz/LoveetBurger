@@ -1,0 +1,65 @@
+<h1>Welcome to LoveetBurger </h1>
+
+<h2>Sorry for the long line, now you can pre order your burger by using this app</h2>
+
+<div class="row">
+  <div class="col-md">
+      {{!-- Burgers to be eaten--}}
+
+    <ul>
+      <li> Menu</li>
+      {{#each brgr}}
+      {{#unless this.devoured}}
+      <div class="card">
+        <p>
+          {{this.id}}. {{this.burger_name}}
+          {{!-- <form action="update/{{this.id}}?_method=PUT" method="POST"> --}}
+            <form class="change-devoured" data-id="{{this.id}}" data-newdevoured="{{this.devoured}}">
+              {{!-- <input type="hidden" name="devoured" value="1"> --}}
+              <button type="submit" class="btn-success">DEVOUR IT!</button>
+              <button class="delete btn-warning" data-id="{{this.id}}">Delete</button>
+            </form>
+        </p>
+      </div>
+      {{/unless}}
+      {{/each}}
+    </ul>
+  </div>
+
+
+  {{!-- burger icon box --}}
+  <div class="col-md">
+    <h2>Add burger here</h2>
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTI4w9pyQcwt8A9vkoUyBVCdTTsNqvWp5OQyXDwrM-q2JmmWnneJA">
+    <form class="create-form">
+      <div class="form-group">
+        <label for="bg">Burger name to be added:</label>
+        <input type="text" id="bg" name="burger_name">
+      </div>
+      <button type="submit">Add to Tummy!</button>
+    </form>
+  </div>
+
+  {{!-- Devoured Burgers --}}
+  <div class="col-md">
+    <ul>
+      {{#each brgr}}
+      {{#if this.devoured}}
+      <div class="card">
+        <p class="grey-text">
+          {{this.id}}. {{this.burger_name}}
+          {{!-- <form action="delete/{{this.id}}?_method=DELETE" method="POST"> --}}
+            <form>
+              <button type="submit" class="btn-danger">Remove</button>
+            </form>
+        </p>
+      </div>
+      {{/if}}
+      {{/each}}
+    </ul>
+    <div class="form-group">
+      <label for="dev">Devoured</label><br>
+    </div>
+  </div>
+
+</div>
