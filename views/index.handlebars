@@ -1,24 +1,21 @@
-<h1>Welcome to LoveetBurger </h1>
+<h1 class="text-center">Welcome to LoveetBurger </h1>
 
-<h2>Sorry for the long line, now you can pre order your burger by using this app</h2>
+<h2>Sorry for the long line, now you can pre-order your burger using this app</h2>
 
 <div class="row">
   <div class="col-md">
-      {{!-- Burgers to be eaten--}}
-
+    {{!-- Burgers to be eaten--}}
     <ul>
-      <li> Menu</li>
+      <h3 class="text-left">Menu</h3>
       {{#each brgr}}
       {{#unless this.devoured}}
       <div class="card">
         <p>
           {{this.id}}. {{this.burger_name}}
-          {{!-- <form action="update/{{this.id}}?_method=PUT" method="POST"> --}}
-            <form class="change-devoured" data-id="{{this.id}}" data-newdevoured="{{this.devoured}}">
-              {{!-- <input type="hidden" name="devoured" value="1"> --}}
-              <button type="submit" class="btn-success">DEVOUR IT!</button>
-              <button class="delete btn-warning" data-id="{{this.id}}">Delete</button>
-            </form>
+          <form class="change-devoured" data-id="{{this.id}}" data-newdevoured="{{this.devoured}}">
+            <button type="submit" class="btn-success">DEVOUR IT!</button>
+          </form>
+          <button class="delete btn-warning" data-id="{{this.id}}">Delete</button>
         </p>
       </div>
       {{/unless}}
@@ -26,40 +23,32 @@
     </ul>
   </div>
 
-
   {{!-- burger icon box --}}
   <div class="col-md">
-    <h2>Add burger here</h2>
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTI4w9pyQcwt8A9vkoUyBVCdTTsNqvWp5OQyXDwrM-q2JmmWnneJA">
+    <h2 class="text-center">Add burger here</h2>
+    <img class="responsive" src="assets/img/hamburger.gif">
     <form class="create-form">
       <div class="form-group">
-        <label for="bg">Burger name to be added:</label>
+        <p class="text-center">Enter the burger of your choice</p>
         <input type="text" id="bg" name="burger_name">
       </div>
-      <button type="submit">Add to Tummy!</button>
+      <button type="submit" class="position-absolute">Add to Selection!</button>
     </form>
   </div>
 
   {{!-- Devoured Burgers --}}
   <div class="col-md">
     <ul>
+      <h3 class="text-left">Devoured</h3>
       {{#each brgr}}
       {{#if this.devoured}}
       <div class="card">
         <p class="grey-text">
           {{this.id}}. {{this.burger_name}}
-          {{!-- <form action="delete/{{this.id}}?_method=DELETE" method="POST"> --}}
-            <form>
-              <button type="submit" class="btn-danger">Remove</button>
-            </form>
         </p>
+        <button class="delete btn-warning btn-sm" data-id="{{this.id}}">Delete</button>
       </div>
       {{/if}}
       {{/each}}
     </ul>
-    <div class="form-group">
-      <label for="dev">Devoured</label><br>
-    </div>
   </div>
-
-</div>
