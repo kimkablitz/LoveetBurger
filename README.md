@@ -4,7 +4,7 @@
 * The use of ORM libary allows developers to manipulate the database indirectly and at a much faster speed.
 * Handlebars saves us from having to repeat the same codes in DOM
 ## Screen shots
-![LoveetBurger](assets/img/screenshot.png)
+![LoveetBurger](public/assets/img/screenshot.png)
 
 
 
